@@ -7,57 +7,57 @@ import java.util.List;
 
 
 @Entity
-
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Table(name = "Inversiones")
 public class Inversiones {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int monto;
-    private int plazodias;
-    private int cuentadebito;
-    private int Tasa;
+    private Integer id;
+    private Double monto;
+    private Integer plazoDias;
+    //private Double cuentaDebito;
+    private Double tasa;
 
     public Inversiones(){
     }
 
-    public Inversiones(int monto, int plazodias, int cuentadebito, int tasa){
-        this.cuentadebito = cuentadebito;
+    public Inversiones(Integer id, Double monto, Integer plazoDias, Double tasa) {
+        this.id = id;
         this.monto = monto;
-        this.Tasa = tasa;
-        this.plazodias = plazodias;
+        this.plazoDias = plazoDias;
+        this.tasa = tasa;
     }
 
-    public int getCuentadebito() {
-        return cuentadebito;
+    public Integer getId() {
+        return id;
     }
 
-    public int getMonto() {
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Double getMonto() {
         return monto;
     }
 
-    public int getPlazodias() {
-        return plazodias;
-    }
-
-    public int getTasa() {
-        return Tasa;
-    }
-
-    public void setCuentadebito(int cuentadebito) {
-        this.cuentadebito = cuentadebito;
-    }
-
-    public void setMonto(int monto) {
+    public void setMonto(Double monto) {
         this.monto = monto;
     }
 
-    public void setPlazodias(int plazodias) {
-        this.plazodias = plazodias;
+    public Integer getPlazoDias() {
+        return plazoDias;
     }
 
-    public void setTasa(int tasa) {
-        Tasa = tasa;
+    public void setPlazoDias(Integer plazoDias) {
+        this.plazoDias = plazoDias;
+    }
+
+    public Double getTasa() {
+        return tasa;
+    }
+
+    public void setTasa(Double tasa) {
+        this.tasa = tasa;
     }
 }
