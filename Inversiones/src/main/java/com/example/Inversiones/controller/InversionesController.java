@@ -23,6 +23,4 @@ public class InversionesController {
     public Inversiones getStudentByName(@PathVariable("nombrevariable") String monto) {
         return inversionesService.getInversion(monto);
     }
-
-
 }
