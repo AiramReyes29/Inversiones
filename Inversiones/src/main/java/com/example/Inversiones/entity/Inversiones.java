@@ -93,5 +93,7 @@ public class Inversiones {
         this.plazodias = plazodias;
     }
 
-
+    public Double getTasa() {
+        return Tasa;
+    }
 }

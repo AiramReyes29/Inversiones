@@ -11,10 +11,10 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @ControllerAdvice
 public class noCuentaHandler extends ResponseEntityExceptionHandler {
-    @ExceptionHandler({noCuenta.class})
-    protected ResponseEntity<Object> handleNotFound(
-            Exception ex, WebRequest request){
-        return handleExceptionInternal(ex,"No tiene cuenta",
-                new HttpHeaders(), HttpStatus.NOT_FOUND, request);
-    }
+    //@ExceptionHandler({noCuenta.class})
+    //protected ResponseEntity<Object> handleNotFound(
+      //      Exception ex, WebRequest request){
+       // return handleExceptionInternal(ex,"No tiene cuenta",
+         //       new HttpHeaders(), HttpStatus.NOT_FOUND, request);
+    //}
 }

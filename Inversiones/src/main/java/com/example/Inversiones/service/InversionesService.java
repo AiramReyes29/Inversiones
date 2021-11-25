@@ -21,6 +21,10 @@ public class InversionesService {
     @Autowired
     RestTemplate restTemplate = new RestTemplate();
 
+    public boolean crearNuevaInversion(Inversiones inversiones){
+        return inversionesRepository.crearNuevaInversion(inversiones);
+    }
+
     public void addInversion(Inversiones inversiones){
         inversionesRepository.Inversiones(inversiones);
     }
@@ -54,11 +58,5 @@ public class InversionesService {
         }
     }
 
-    public Integer obetnerIdCuenta(List<Cuenta> cuentaCliente, double saldo) {
-        return inversionesRepository.obtenerIdCuenta(cuentaCliente, saldo);
-    }
 
-    public Optional<Inversiones> getListaInversion(Integer idUsuario) {
-        return inversionesRepository.getListaInversion(idUsuario);
-    }
 }

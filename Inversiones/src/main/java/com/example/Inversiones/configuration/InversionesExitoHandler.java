@@ -11,10 +11,10 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @ControllerAdvice
 public class InversionesExitoHandler extends ResponseEntityExceptionHandler {
-    @ExceptionHandler({InversionesExito.class})
-    protected ResponseEntity<Object> handleNotFound(
-            Exception ex, WebRequest request){
-        return handleExceptionInternal(ex,"Exito",
-                new HttpHeaders(), HttpStatus.ACCEPTED, request);
-    }
+   // @ExceptionHandler({InversionesExito.class})
+    //protected ResponseEntity<Object> handleNotFound(
+      //      Exception ex, WebRequest request){
+        //return handleExceptionInternal(ex,"Exito",
+          //      new HttpHeaders(), HttpStatus.ACCEPTED, request);
+    //}
 }
