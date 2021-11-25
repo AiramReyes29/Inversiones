@@ -7,6 +7,7 @@ import java.util.List;
 
 
 @Entity
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Table(name = "Inversiones")
 public class Inversiones {
@@ -14,19 +15,28 @@ public class Inversiones {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+    private Integer idUsuario;
+    private Integer idCuenta;
     private Double monto;
-    private Integer plazoDias;
-    //private Double cuentaDebito;
-    private Double tasa;
+    private Integer plazodias;
+    private int cuentadebito;
+    private Double Tasa;
 
     public Inversiones(){
     }
 
-    public Inversiones(Integer id, Double monto, Integer plazoDias, Double tasa) {
+    public Inversiones(Integer id, Integer idUsuario, Integer idCuenta, Double monto, Integer plazodias, int cuentadebito, Double tasa){
         this.id = id;
+        this.idCuenta = idCuenta;
+        this.idUsuario = idUsuario;
+        this.cuentadebito = cuentadebito;
         this.monto = monto;
-        this.plazoDias = plazoDias;
-        this.tasa = tasa;
+        this.Tasa = tasa;
+        this.plazodias = plazodias;
+    }
+
+    public int getCuentadebito() {
+        return cuentadebito;
     }
 
     public Integer getId() {
@@ -37,27 +47,53 @@ public class Inversiones {
         this.id = id;
     }
 
-    public Double getMonto() {
-        return monto;
+    public Integer getIdCuenta() {
+        return idCuenta;
+    }
+
+    public void setIdCuenta(Integer idCuenta) {
+        this.idCuenta = idCuenta;
+    }
+
+    public Integer getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public void setMonto(Double monto) {
         this.monto = monto;
     }
 
-    public Integer getPlazoDias() {
-        return plazoDias;
-    }
-
-    public void setPlazoDias(Integer plazoDias) {
-        this.plazoDias = plazoDias;
-    }
-
-    public Double getTasa() {
-        return tasa;
+    public void setPlazodias(Integer plazodias) {
+        this.plazodias = plazodias;
     }
 
     public void setTasa(Double tasa) {
-        this.tasa = tasa;
+        Tasa = tasa;
+    }
+
+    public Double getMonto() {
+        return monto;
+    }
+
+    public int getPlazodias() {
+        return plazodias;
+    }
+
+
+    public void setCuentadebito(int cuentadebito) {
+        this.cuentadebito = cuentadebito;
+    }
+
+
+    public void setPlazodias(int plazodias) {
+        this.plazodias = plazodias;
+    }
+
+    public Double getTasa() {
+        return Tasa;
     }
 }
