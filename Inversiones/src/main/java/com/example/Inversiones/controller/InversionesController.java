@@ -1,8 +1,6 @@
 package com.example.Inversiones.controller;
 
 import com.example.Inversiones.entity.Inversiones;
-import com.example.Inversiones.repository.InversionesRepository;
-import com.example.Inversiones.repository.InversionesRepositoryDAO;
 import com.example.Inversiones.service.InversionesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,44 +18,6 @@ public class InversionesController {
 
     @Autowired
     private InversionesService inversionesService;
-    @Autowired
-    private InversionesRepository inversionesRepository;
-    @Autowired
-    private InversionesRepositoryDAO inversionesRepositoryDAO;
-
-
-    @GetMapping("/idusuario")
-    public Integer getUsuarioPorId(){
-        idUsuario = inversionesService.obtenerId();
-        return idUsuario;
-    }
-
-    @PostMapping("/{inversion}")
-    public ResponseEntity<Inversiones> addInversion(@RequestBody Inversiones inversiones) {
-        System.out.println("Finalizada");
-    @GetMapping("/inversiones")
-
-    @GetMapping("/verInversiones")
-    public List<Inversiones> verCuentas(){return inversionesRepository.inversionesList();}
-
-    //@GetMapping("/listarInversiones")
-    //public ResponseEntity<Inversiones> listarPrestamos() throws noInversion{
-      //  idUsuario = inversionesService.obtenerId();
-        //Optional<Inversiones> optionalPrestamo = inversionesService.getListaInversion(idUsuario);
-        //if(optionalPrestamo.isEmpty()){
-         //   throw new noInversion();
-      //  }
-        //return ResponseEntity.ok(optionalPrestamo.get());
-    //}
-
-    @GetMapping("/cuentaByIdUsuario/{idUsuario}")
-    public List<Inversiones> cuentaByIdUsuario(@PathVariable("idUsuario")Integer idUsuario) throws noCuenta {
-        cuentaCliente=inversionesRepositoryDAO.findByIdUsuario(idUsuario);
-        if (cuentaCliente.isEmpty()){
-            throw new noCuenta();
-        }
-        return inversionesRepositoryDAO.findByIdUsuario(idUsuario);
-    }
 
     @PostMapping("/crear")
     public ResponseEntity<String> crearNuevaCuenta(@RequestBody Inversiones inversiones) {
@@ -66,7 +26,4 @@ public class InversionesController {
         }
         return new ResponseEntity<>("Transaccion Fallida", HttpStatus.BAD_REQUEST);
     }
-
-
-
 }

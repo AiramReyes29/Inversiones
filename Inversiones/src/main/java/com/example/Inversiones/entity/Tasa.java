@@ -13,8 +13,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tasas")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Tasa {
@@ -26,4 +24,21 @@ public class Tasa {
     public Tasa(double tasa){
         this.tasa = tasa;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public double getTasa() {
+        return tasa;
+    }
+
+    public void setTasa(double tasa) {
+        this.tasa = tasa;
+    }
+
 }

@@ -19,6 +19,8 @@ import java.util.Optional;
 public class InversionesRepository {
     @Autowired
     InversionesRepositoryDAO inversionesRepositoryDAO;
+    @Autowired
+    TasaRepositorio tasaRepositorio;
 
     public boolean Inversiones(Inversiones inversiones){
         try {
@@ -52,8 +54,14 @@ public class InversionesRepository {
 
     public boolean crearNuevaInversion(Inversiones inversiones) {
         try {
-            Integer inventarioId = restTemplate.getForObject("http://localhost:8081/usuarios/enviarid", Integer.class);
+            Integer inventarioId = restTemplate.getForObject("http://localhost:8080/usuarios/enviarid", Integer.class);
+            List<Cuenta> cuentasUsuario = restTemplate.getForObject("http://localhost:8081/cuentas/cuentaByIdUsuario/" + inventarioId, List.class);
+            if(cuentasUsuario.isEmpty()){
+                System.out.println("usuario sin cuentas");
+                return false;
+            }
             inversiones.setIdUsuario(inventarioId);
+            inversiones.setTasa(tasaRepositorio.obtenerTasa(inversiones.getMonto()));
             inversionesRepositoryDAO.save(inversiones);
             return true;
         }catch (Exception e){

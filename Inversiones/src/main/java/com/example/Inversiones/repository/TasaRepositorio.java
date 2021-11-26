@@ -38,6 +38,18 @@ public class TasaRepositorio {
         }
     }
 
+    public Double obtenerTasa(Double monto){
+        if(monto > 10000 && monto <= 50000){
+            return tasaMinima;
+        }else if (monto > 50000 && monto <= 100000){
+            return tasaMedia;
+        }else if (monto > 100000){
+            return tasaMaxima;
+        }else{
+            return 0.0;
+        }
+    }
+
     public List<Tasa> encontrarTodasLasTasas(){
         return (List<Tasa>) tasaRepositorioDAO.findAll();
     }
