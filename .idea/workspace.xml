@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8554e2b-6424-4b62-aee8-cf6e2815469a" name="Changes" comment="" />
+    <list default="true" id="e8554e2b-6424-4b62-aee8-cf6e2815469a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Inversiones/src/main/java/com/example/Inversiones/controller/InversionesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inversiones/src/main/java/com/example/Inversiones/controller/InversionesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inversiones/src/main/java/com/example/Inversiones/entity/Inversiones.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inversiones/src/main/java/com/example/Inversiones/entity/Inversiones.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inversiones/src/main/java/com/example/Inversiones/entity/Tasa.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inversiones/src/main/java/com/example/Inversiones/entity/Tasa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inversiones/src/main/java/com/example/Inversiones/repository/InversionesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inversiones/src/main/java/com/example/Inversiones/repository/InversionesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inversiones/src/main/java/com/example/Inversiones/repository/TasaRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inversiones/src/main/java/com/example/Inversiones/repository/TasaRepositorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inversiones/src/main/java/com/example/Inversiones/repository/TasaRepositorioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inversiones/src/main/java/com/example/Inversiones/repository/TasaRepositorioDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inversiones/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Inversiones/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

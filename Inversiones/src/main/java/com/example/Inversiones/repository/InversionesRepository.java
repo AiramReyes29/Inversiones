@@ -3,7 +3,10 @@ package com.example.Inversiones.repository;
 import com.example.Inversiones.controller.noCuenta;
 import com.example.Inversiones.entity.Cuenta;
 import com.example.Inversiones.entity.Inversiones;
+import com.example.Inversiones.entity.Tasa;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +19,8 @@ import java.util.Optional;
 public class InversionesRepository {
     @Autowired
     InversionesRepositoryDAO inversionesRepositoryDAO;
+    @Autowired
+    TasaRepositorio tasaRepositorio;
 
     public boolean Inversiones(Inversiones inversiones){
         try {
@@ -49,8 +54,14 @@ public class InversionesRepository {
 
     public boolean crearNuevaInversion(Inversiones inversiones) {
         try {
-            Integer inventarioId = restTemplate.getForObject("http://localhost:8081/usuarios/enviarid", Integer.class);
+            Integer inventarioId = restTemplate.getForObject("http://localhost:8080/usuarios/enviarid", Integer.class);
+            List<Cuenta> cuentasUsuario = restTemplate.getForObject("http://localhost:8081/cuentas/cuentaByIdUsuario/" + inventarioId, List.class);
+            if(cuentasUsuario.isEmpty()){
+                System.out.println("usuario sin cuentas");
+                return false;
+            }
             inversiones.setIdUsuario(inventarioId);
+            inversiones.setTasa(tasaRepositorio.obtenerTasa(inversiones.getMonto()));
             inversionesRepositoryDAO.save(inversiones);
             return true;
         }catch (Exception e){
@@ -58,4 +69,6 @@ public class InversionesRepository {
            return false;
         }
     }
+
+
 }
