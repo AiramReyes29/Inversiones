@@ -62,6 +62,8 @@ public class InversionesRepository {
             }
             inversiones.setIdUsuario(inventarioId);
             inversiones.setTasa(tasaRepositorio.obtenerTasa(inversiones.getMonto()));
+            inversiones.setInteres(inversiones.getMonto() * inversiones.getTasa());
+            inversiones.setMontoTotal(inversiones.getMonto() + inversiones.getInteres());
             inversionesRepositoryDAO.save(inversiones);
             return true;
         }catch (Exception e){
@@ -70,5 +72,8 @@ public class InversionesRepository {
         }
     }
 
-
+    public List<Inversiones> listaInversionesPorId(){
+        Integer inventarioId = restTemplate.getForObject("http://localhost:8080/usuarios/enviarid", Integer.class);
+        return inversionesRepositoryDAO.findByIdUsuario(inventarioId);
+    }
 }

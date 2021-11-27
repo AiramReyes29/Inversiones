@@ -26,4 +26,14 @@ public class InversionesController {
         }
         return new ResponseEntity<>("Transaccion Fallida", HttpStatus.BAD_REQUEST);
     }
+
+    @GetMapping("/listarinversiones")
+    public ResponseEntity<List> listaInversionesPorId(){
+        List<Inversiones> inversiones = inversionesService.listaInversionesPorId();
+        if(inversiones.isEmpty()){
+            return new ResponseEntity<>(inversiones, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(inversiones, HttpStatus.OK);
+
+    }
 }

@@ -1,8 +1,10 @@
 package com.example.Inversiones.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 
@@ -20,11 +22,16 @@ public class Inversiones {
     private Integer plazoDias;
     private int cuentaDebito;
     private Double tasa;
+    @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern="dd-MM-yyyy")
+    private Date fechaVencimiento;
+    private Double interes;
+    private Double montoTotal;
 
     public Inversiones() {
     }
 
-    public Inversiones(Integer id, Integer idUsuario, Integer idCuenta, Double monto, Integer plazoDias, int cuentaDebito, Double tasa) {
+    public Inversiones(Integer id, Integer idUsuario, Integer idCuenta, Double monto, Integer plazoDias, int cuentaDebito, Double tasa, Date fechaVencimiento, Double interes, Double montoTotal) {
         this.id = id;
         this.idUsuario = idUsuario;
         this.idCuenta = idCuenta;
@@ -32,6 +39,9 @@ public class Inversiones {
         this.plazoDias = plazoDias;
         this.cuentaDebito = cuentaDebito;
         this.tasa = tasa;
+        this.fechaVencimiento = fechaVencimiento;
+        this.interes = interes;
+        this.montoTotal = montoTotal;
     }
 
     public Integer getId() {
@@ -88,5 +98,29 @@ public class Inversiones {
 
     public void setTasa(Double tasa) {
         this.tasa = tasa;
+    }
+
+    public Date getFechaVencimiento() {
+        return fechaVencimiento;
+    }
+
+    public void setFechaVencimiento(Date fechaVencimiento) {
+        this.fechaVencimiento = fechaVencimiento;
+    }
+
+    public Double getInteres() {
+        return interes;
+    }
+
+    public void setInteres(Double interes) {
+        this.interes = interes;
+    }
+
+    public Double getMontoTotal() {
+        return montoTotal;
+    }
+
+    public void setMontoTotal(Double montoTotal) {
+        this.montoTotal = montoTotal;
     }
 }
