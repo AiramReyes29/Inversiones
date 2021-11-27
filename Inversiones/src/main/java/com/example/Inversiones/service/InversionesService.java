@@ -58,5 +58,7 @@ public class InversionesService {
         }
     }
 
-
+    public List<Inversiones> listaInversionesPorId(){
+        return inversionesRepository.listaInversionesPorId();
+    }
 }
