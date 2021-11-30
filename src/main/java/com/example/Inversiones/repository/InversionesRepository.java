@@ -54,8 +54,8 @@ public class InversionesRepository {
 
     public boolean crearNuevaInversion(Inversiones inversiones) {
         try {
-            Integer inventarioId = restTemplate.getForObject("http://localhost:8080/usuarios/enviarid", Integer.class);
-            List<Cuenta> cuentasUsuario = restTemplate.getForObject("http://localhost:8081/cuentas/cuentaByIdUsuario/" + inventarioId, List.class);
+            Integer inventarioId = restTemplate.getForObject("https://banco-demo-equipod-nttdata.herokuapp.com/usuarios/enviarid", Integer.class);
+            List<Cuenta> cuentasUsuario = restTemplate.getForObject("https://banco-cuentas.herokuapp.com/cuentas/cuentaByIdUsuario//" + inventarioId, List.class);
             if(cuentasUsuario.isEmpty()){
                 System.out.println("usuario sin cuentas");
                 return false;
@@ -73,7 +73,7 @@ public class InversionesRepository {
     }
 
     public List<Inversiones> listaInversionesPorId(){
-        Integer inventarioId = restTemplate.getForObject("http://localhost:8080/usuarios/enviarid", Integer.class);
+        Integer inventarioId = restTemplate.getForObject("https://banco-demo-equipod-nttdata.herokuapp.com/usuarios/enviarid", Integer.class);
         return inversionesRepositoryDAO.findByIdUsuario(inventarioId);
     }
 }
